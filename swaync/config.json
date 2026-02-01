@@ -1,0 +1,64 @@
+{
+  "positionX": "center",
+ "positionY": "top",
+
+  "layer": "overlay",
+  "control-center-layer": "overlay",
+
+  "control-center-margin-top": 32,
+  "control-center-margin-bottom": 900,
+  "control-center-margin-left": 0,
+  "control-center-margin-right": 0,
+
+  "control-center-width": 960,
+
+  "notification-window-width": 420,
+  "notification-icon-size": 16,
+
+  "timeout": 3,
+  "hide-on-clear": false,
+
+  "widgets": [
+    "title",
+    "dnd",
+    "mpris",
+    "volume",
+    "brightness",
+    "network",
+    "bluetooth",
+    "buttons",
+    "notifications"
+  ],
+
+  "widget-config": {
+    "title": {
+      "text": "Control Center"
+    },
+
+    "dnd": {
+      "text": "Do Not Disturb"
+    },
+
+    "volume": {
+      "label": "Volume",
+      "device": "default"
+    },
+
+    "brightness": {
+      "label": "Brightness",
+      "device": "intel_backlight"
+    },
+
+
+    "buttons": {
+      "buttons": [
+        {
+          "label": "Clear",
+          "command": "swaync-client -C"
+        }
+      ]
+    }
+  }
+}
+
+
