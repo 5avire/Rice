@@ -33,6 +33,10 @@ pkill kdeconnectd
 pkill blueman-applet
 (blueman-applet) &
 
+# Hypridle
+pkill hypridle
+(hypridle -c /home/savvy/rice/hypr/hypridle.conf) &
+
 # ---- cliphist (safe) ----
 pgrep -x wl-paste >/dev/null || {
   wl-paste --type text --watch cliphist store --max-items 25 &
