@@ -73,7 +73,7 @@
         },
         {
           "label": "",
-          "command": "sh -c 'grim -g $(slurp)'",
+          "command": "sh -c 'swaync-client -cp && sleep 0.5 && /home/savvy/rice/scripts/screenshot.sh'",
           "type": "button"
         }
       ]
