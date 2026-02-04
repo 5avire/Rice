@@ -173,7 +173,7 @@
     "network": {
         // "interface": "wlp2*", // (Optional) To force the use of this interface
         "interval": 1,
-        "format-wifi": "{bandwidthUpBits} {bandwidthDownBits}   ",
+        "format-wifi": "<span color='#3DED97'> {bandwidthUpBits}</span> <span color='#ff2052'> {bandwidthDownBits}</span>   ",
         "format-ethernet": "{bandwidthUpBits} {bandwidthDownBits}   ",
         "format-disconnected": "Disconnected ⚠",
         "tooltip": false,

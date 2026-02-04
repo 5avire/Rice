@@ -131,6 +131,10 @@ button:hover {
   color: #89b4fa ;
 }
 
+#workspaces button.urgent {
+  color: #900D09 ;
+}
+
 /* If workspaces is the leftest module, omit left margin */
 .modules-left > widget:first-child > #workspaces {
     margin-left: 0px;
