@@ -1,22 +1,21 @@
-// -*- mode: jsonc -*-
 {
-    "layer": "top", // Waybar at top layer
-    "position": "top", // Waybar position (top|bottom|left|right)
-    "height": 36, // Waybar height (to be removed for auto height)
-    "width": 1920, // Waybar width
-    "spacing": 6, // Gaps between modules (4px)
+    "layer": "top", 
+    "position": "top", 
+    "height": 36, 
+    "width": 1920, 
+    "spacing": 6, 
  
 
-  // Choose the order of the modules
     "modules-left": [
         "custom/archLauncher",
-        "clock",
         "hyprland/workspaces",
+    ],
+
+    "modules-center": [
+        "clock", 
         "mpris",
     ],
-    "modules-center": [
-        "hyprland/window", 
-    ],
+
     "modules-right": [
         "network",
         "backlight",
@@ -31,12 +30,12 @@
     },
 
     "custom/swaync": {
-        "tooltip": false,
-         "format": "",
- //        "format-icons": {
-   //         "notification": "",
-     //       "none": ""
-       //   },
+       "tooltip": false,
+       "format": "",
+       "format-icons": {
+            "notification": "",
+            "none": ""
+       },
         "return-type": "json",
         "exec": "swaync-client -swb",
         "on-click": "swaync-client -t",
@@ -44,38 +43,25 @@
     },
 
     "hyprland/workspaces": {
+         "interval": 1,
          "disable-scroll": false,
          "all-outputs": true,
          "warp-on-scroll": false,
-        "format": "{name}",
-//          "format-icons": {
-//              "1": "-",
-//              "2": "-",
-//              "3": "-",
-//              "5": "-",
-//              "4": "-",
-//              "5": "-",
-//              "6": "-",
-//              "7": "-",
-//              "8": "-",
-//              "9": "-",
-//              "10": "-",
-//          },
-        "format-active": "{name}",
+         "format": "<sup>{icon}</sup>{windows}",
+         "window-rewrite-default": "󰊲",
+         "format-window-seperator": "\n",
+          "window-rewrite": {
+            "title<.*Browser.*>": "",
+            "title<.*nvim.*>": "",
+            "class<spotify>": "",
+            "class<discord> title<.*discord.*>": "",
+            "kitty": "",
+            "foot": "",
+            "minecraft": "󰍳",
+            "notion": "",
+            "dolphin": "",
+          },
      },
-
-    "hyprland/scratchpad": {
-        "format": "{icon} {count}",
-        "show-empty": false,
-        "format-icons": ["", ""],
-        "tooltip": true,
-        "tooltip-format": "{app}: {title}"
-    },
-
-    "hyprland/mode": {
-        "format": "<span style=\"italic\">{}</span>"
-    },
-
 
     "custom/archLauncher": {
       "format": " 󰣇 ",
@@ -98,22 +84,12 @@
           "power-profiles-daemon",
         ]
     },
-    
-    "keyboard-state": {
-        "numlock": true,
-        "capslock": true,
-        "format": "{name} {icon}",
-        "format-icons": {
-            "locked": "",
-            "unlocked": ""
-        }
-    },
 
     "mpris": {
      "format": "{player_icon}  {status_icon}   {title}",
       "status-icons": {
-      "playing": "",
-      "paused": ""
+           "playing": "",
+           "paused": ""
       },
       "max-length":25,
       "on-click": "playerctl play-pause",
@@ -122,52 +98,55 @@
       "player-icons": {
         "spotify": ""
       }
-
     },
 
-    "idle_inhibitor": {
-        "format": "{icon}",
-        "format-icons": {
-            "activated": "",
-            "deactivated": ""
+    "tray": {
+        "icon-size": 18,
+        "spacing": 10,
+    },
+
+    "clock": {
+        "format": " {:%b-%d , %H:%M} ",
+        "tooltip-format": "<tt><small>{calendar}</small></tt>",
+        "calendar": {
+            "mode": "month",
+            "weeks-pos": "left",
+            "on-scroll": 1,
+            "format": {
+                "months":     "<span color='#ffffff'><b>{}</b></span>",
+                "days":       "<span color='#eeeeee'>{}</span>",
+                "weeks":      "<span color='#555555'>W{}</span>",
+                "weekdays":   "<span color='#ffffff'><b>{}</b></span>",
+                "today":      "<span color='#89b4fa'><b>{}</b></span>"
+            }
+        },
+        "actions": {
+            "on-scroll-up": "shift_up",
+            "on-scroll-down": "shift_down"
         }
     },
-    "tray": {
-        // "icon-size": 21,
-        "spacing": 10,
-        // "icons": {
-        //   "blueman": "bluetooth",
-        //   "TelegramDesktop": "$HOME/.local/share/icons/hicolor/16x16/apps/telegram.png"
-        // }
-    },
-    "clock": {
-        // "timezone": "America/New_York",
-        "format": "{:%b-%d , %H:%M} ",
-        "tooltip": false 
-    },
+
     "cpu": {
         "format": "{usage}% ",
     },
+
     "memory": {
         "format": "{}%  " 
     },
 
     "temperature": {
-        // "thermal-zone": 2,
-        // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
         "critical-threshold": 80,
-        // "format-critical": "{temperatureC}°C {icon}",
         "format": "{temperatureC}°C {icon}",
         "format-icons": ["", "", ""]
     },
+
     "backlight": {
-        // "device": "acpi_video1",
         "format": "{icon}",
         "format-icons": ["", "", "", "", "", "", "", "", ""]
     },
+
     "battery": {
         "states": {
-            // "good": 95,
             "warning": 30,
             "critical": 15
         },
@@ -176,13 +155,9 @@
         "format-charging": "{capacity}% ",
         "format-plugged": "{capacity}% ",
         "format-alt": "{time} {icon}",
-        // "format-good": "", // An empty format will hide the module
-        // "format-full": "",
         "format-icons": ["", "", "", "", ""]
     },
-    "battery#bat2": {
-        "bat": "BAT2"
-    },
+
     "power-profiles-daemon": {
       "format": "{icon}",
       "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
@@ -194,22 +169,21 @@
         "power-saver": ""
       }
     },
+
     "network": {
         // "interface": "wlp2*", // (Optional) To force the use of this interface
-        "format-wifi": "{essid} ({signalStrength}%) ",
-        "format-ethernet": "{ipaddr}/{cidr} ",
-        "tooltip-format": "{ifname} via {gwaddr} ",
-        "format-linked": "{ifname} (No IP) ",
+        "interval": 1,
+        "format-wifi": "{bandwidthUpBits} {bandwidthDownBits}   ",
+        "format-ethernet": "{bandwidthUpBits} {bandwidthDownBits}   ",
         "format-disconnected": "Disconnected ⚠",
+        "tooltip": false,
     },
+
     "pulseaudio": {
-        // "scroll-step": 1, // %, can be a float
         "format": "{volume}% {icon}",
         "format-bluetooth": "{volume}% {icon}",
         "format-bluetooth-muted": " {icon}",
         "format-muted": " ",
-        //"format-source": "{volume}% ", // Mic 
-        //"format-source-muted": "", // Mic
         "format-icons": {
             "headphone": "",
             "hands-free": "",
@@ -221,29 +195,18 @@
         },
         "on-click": "pavucontrol"
     },
-    "custom/media": {
-        "format": "{icon} {text}",
-        "return-type": "json",
-        "max-length": 40,
-        "format-icons": {
-            "spotify": "",
-            "default": "🎜"
-        },
-        "escape": true,
-        "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null" // Script in resources folder
-        // "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
-    },
+
     "custom/power": {
         "format" : "⏻ ",
-		"tooltip": false,
-		"menu": "on-click",
-		"menu-file": "$HOME/.config/waybar/power_menu.xml", // Menu file in resources folder
-		"menu-actions": {
-			"shutdown": "shutdown",
-			"reboot": "reboot",
-			"suspend": "systemctl suspend",
-			"hibernate": "systemctl hibernate"
-		}
+    		"tooltip": false,
+		    "menu": "on-click",
+		    "menu-file": "$HOME/.config/waybar/power_menu.xml", // Menu file in resources folder
+		    "menu-actions": {
+			      "shutdown": "shutdown",
+			      "reboot": "reboot",
+			      "suspend": "systemctl suspend",
+			      "hibernate": "systemctl hibernate"
+		    }
     }
 }
 

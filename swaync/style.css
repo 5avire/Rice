@@ -6,11 +6,10 @@
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
 }
 
-/* Replaces the old .widget-label styles */
 .widget-title {
   margin: 10px;
   display: flex;
-  justify-content: space-between; /* Pushes text to left, button to right */
+  justify-content: space-between; 
   align-items: center;
 }
 
@@ -33,13 +32,14 @@
 
 .widget-title > button:hover {
   background: #45475a;
-  color: #f38ba8; /* Turns reddish on hover */
+  color: #f38ba8; 
 }
+
 /* Buttons Grid */
 .widget-buttons-grid {
   background-color: transparent;
   padding: 5px;
-  margin: 0px 10px 10px 10px;
+  margin: 0 10px 10px 15px;
 }
 
 .widget-buttons-grid > flowbox > flowboxchild > button {
@@ -49,7 +49,7 @@
   min-height: 50px;
   margin: 5px;
   color: #cdd6f4;
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   border: 1px solid #45475a;
   transition: all 0.2s ease-in-out;
 }
@@ -84,7 +84,8 @@
   border: 1px solid #45475a;
   border-radius: 12px;
   color: #cdd6f4;
-  padding: 5px 10px; /* Slimmer padding */
+  padding: 5px 10px; /* Slimmer padding */ 
+  font-size: 1.2rem;
 }
 
 /* Top slider (Volume) */
@@ -93,6 +94,7 @@
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
   border-bottom: none;
+
 }
 
 /* Bottom slider (Backlight) */
