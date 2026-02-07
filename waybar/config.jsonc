@@ -8,6 +8,7 @@
 
     "modules-left": [
         "custom/archLauncher",
+        "power-profiles-daemon",
         "hyprland/workspaces",
     ],
 
@@ -81,11 +82,11 @@
           "cpu",
           "memory",
           "temperature",
-          "power-profiles-daemon",
         ]
     },
 
     "mpris": {
+     "interval": 1,
      "format": "{player_icon}  {status_icon}   {title}",
       "status-icons": {
            "playing": "",
@@ -177,6 +178,7 @@
         "format-ethernet": "{bandwidthUpBits} {bandwidthDownBits}   ",
         "format-disconnected": "Disconnected ⚠",
         "tooltip": false,
+        "on-click": "$HOME/rice/scripts/rowifi.sh"
     },
 
     "pulseaudio": {

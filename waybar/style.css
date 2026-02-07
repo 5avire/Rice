@@ -18,7 +18,7 @@ window#waybar {
 }
 
 window#waybar.hidden {
-    opacity: 0.0;
+    opacity: 1;
 }
 
 tooltip {
@@ -47,7 +47,6 @@ button:hover {
     background: inherit;
 }
 
-/* you can set a style on hover for any module like this */
 #pulseaudio:hover {
 }
 
@@ -59,10 +58,6 @@ button:hover {
 }
 
 #workspaces button.focused {
-    box-shadow: inset 0 0 #ffffff;
-}
-
-#mode {
     box-shadow: inset 0 0 #ffffff;
 }
 
@@ -207,6 +202,11 @@ button:hover {
 
 #tray > .needs-attention {
     -gtk-icon-effect: highlight;
+}
+
+#tray menu {
+    background-color: rgba(30,30,46,0.9);
+    color: #ffffff;
 }
 
 #mpris {
