@@ -7,7 +7,7 @@
  
 
     "modules-left": [
-        "custom/archLauncher",
+        "custom/hyprLauncher",
         "power-profiles-daemon",
         "hyprland/workspaces",
     ],
@@ -53,7 +53,8 @@
          "format-window-seperator": "\n",
           "window-rewrite": {
             "title<.*Browser.*>": "",
-            "title<.*nvim.*>": "",
+            "neovim": "",
+            "nvim": "",
             "class<spotify>": "",
             "class<discord> title<.*discord.*>": "",
             "kitty": "",
@@ -64,8 +65,8 @@
           },
      },
 
-    "custom/archLauncher": {
-      "format": " 󰣇 ",
+    "custom/hyprLauncher": {
+      "format": " 󰲋 ",
       "tooltip": true,
       "tooltip-format": "Search Application",
       "on-click": "rofi -show drun -p 'Search For Application:' -config /home/savvy/rice/rofi/application.rasi"
